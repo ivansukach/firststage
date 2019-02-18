@@ -1,0 +1,5 @@
+commit 0c56a64c9924865e6aefb0a453d0a5dc14ddc2f8 (HEAD -> master)
+Author: Ivan <vsukach1999@gmail.com>
+Date:   Tue Feb 19 01:29:53 2019 +0300
+
+    add status.txt
