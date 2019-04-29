@@ -3,164 +3,397 @@
 let photoPosts = [
   {
     id: '1',
-    descriprion: 'Женская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
+    description: 'Женская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
     createdAt: new Date('2018-02-23T23:00:00'),
     author: 'Иванов Иван',
-    photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+    photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+    likes: ['Иванов Иван'],
+    hashTags: ['женская', 'сборная']
    },
      {
        id: '2',
-       descriprion: 'aaaaaa!!!',
+       description: 'aaaaaa!!!',
        createdAt: new Date('2018-02-23T23:00:00'),
-       author: 'Иванов Иван',
-       photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+       author: 'Иванов Евгений',
+       photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+       likes: ['Иванов Иван'],
+       hashTags: ['женская', 'сборная']
       },
         {
           id: '3',
-          descriprion: 'bbbbbbbbbbb!!!',
+          description: 'bbbbbbbbbbb!!!',
           createdAt: new Date('2018-02-23T23:00:00'),
-          author: 'Иванов Иван',
-          photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+          author: 'Иванов Егор',
+          photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+          likes: ['Иванов Иван'],
+          hashTags: ['женская', 'сборная']
          },
            {
              id: '4',
-             descriprion: 'cccccccccccccccccccccccccccc!!!',
+             description: 'cccccccccccccccccccccccccccc!!!',
              createdAt: new Date('2018-02-23T23:00:00'),
-             author: 'Иванов Иван',
-             photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+             author: 'Иванов Даниил',
+             photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+             likes: ['Иванов Иван'],
+             hashTags: ['женская', 'сборная']
             },
               {
                 id: '5',
-                descriprion: 'ddddddddddddddddddddddddddddddd!!!',
+                description: 'ddddddddddddddddddddddddddddddd!!!',
                 createdAt: new Date('2018-02-23T23:00:00'),
                 author: 'Иванов Иван',
-                photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                photoLink: '',
+                likes: ['Иванов Иван'],
+                hashTags: ['женская', 'сборная']
                },
                  {
                    id: '6',
-                   descriprion: 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!',
+                   description: 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!',
                    createdAt: new Date('2018-02-23T23:00:00'),
-                   author: 'Иванов Иван',
-                   photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                   author: '',
+                   photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                   likes: ['Иванов Иван'],
+                   hashTags: ['женская', 'сборная']
                   },
                     {
                       id: '7',
-                      descriprion: 'fffffffffffffffffffffff!!!',
+                      description: 'fffffffffffffffffffffff!!!',
                       createdAt: new Date('2018-02-23T23:00:00'),
-                      author: 'Иванов Иван',
-                      photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                      author: 'Сукач Иван',
+                      photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                      likes: ['Иванов Иван'],
+                      hashTags: ['женская', 'сборная']
                      },
                        {
                          id: '8',
-                         descriprion: 'ggggggggggggggggggggggggggggggggggggggggggg!!!',
+                         description: 'ggggggggggggggggggggggggggggggggggggggggggg!!!',
                          createdAt: new Date('2018-02-23T23:00:00'),
-                         author: 'Иванов Иван',
-                         photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                         author: 'Сукач Иван',
+                         photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                         likes: ['Иванов Иван'],
+                         hashTags: ['женская', 'сборная']
                         },
                           {
                             id: '9',
-                            descriprion: 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!',
+                            description: 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!',
                             createdAt: new Date('2018-02-23T23:00:00'),
-                            author: 'Иванов Иван',
-                            photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                            author: 'Сукач Иван',
+                            photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                            likes: ['Иванов Иван'],
+                            hashTags: ['женская', 'сборная']
+
                            },
                              {
                                id: '10',
-                               descriprion: 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj!!!',
+                               description: 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj!!!',
                                createdAt: new Date('2018-02-23T23:00:00'),
-                               author: 'Иванов Иван',
-                               photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                               author: 'Сукач Иван',
+                               photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                               likes: ['Иванов Иван'],
+                               hashTags: ['женская', 'сборная']
                               },
                                 {
                                   id: '11',
-                                  descriprion: 'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk!!!',
+                                  description: 'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk!!!',
                                   createdAt: new Date('2018-02-23T23:00:00'),
                                   author: 'Иванов Иван',
-                                  photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                                  photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                                  likes: ['Иванов Иван'],
+                                  hashTags: ['женская', 'сборная']
                                  },
 
                                    {
                                      id: '12',
-                                     descriprion: 'lЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
+                                     description: 'lЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
                                      createdAt: new Date('2018-02-23T23:00:00'),
                                      author: 'Иванов Иван',
-                                     photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                                     photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                                     likes: ['Иванов Иван'],
+                                     hashTags: ['женская', 'сборная']
                                     },
                                       {
                                         id: '13',
-                                        descriprion: 'mЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
+                                        description: 'mЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
                                         createdAt: new Date('2018-02-23T23:00:00'),
                                         author: 'Иванов Иван',
-                                        photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                                        photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                                        likes: ['Иванов Иван'],
+                                        hashTags: ['женская', 'сборная']
                                        },
                                          {
                                            id: '14',
-                                           descriprion: 'nЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
+                                           description: 'nЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
                                            createdAt: new Date('2018-02-23T23:00:00'),
                                            author: 'Иванов Иван',
-                                           photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                                           photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                                           likes: ['Иванов Иван'],
+                                           hashTags: ['женская', 'сборная']
                                           },
                                             {
                                               id: '15',
-                                              descriprion: 'oЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
+                                              description: 'oЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
                                               createdAt: new Date('2018-02-23T23:00:00'),
                                               author: 'Иванов Иван',
-                                              photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                                              photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                                              likes: ['Иванов Иван'],
+                                              hashTags: ['женская', 'сборная']
                                              },
                                                {
                                                  id: '16',
-                                                 descriprion: 'pЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
+                                                 description: 'pЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
                                                  createdAt: new Date('2018-02-23T23:00:00'),
                                                  author: 'Иванов Иван',
-                                                 photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                                                 photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                                                 likes: ['Иванов Иван'],
+                                                 hashTags: ['женская', 'сборная']
                                                 },
                                                   {
                                                     id: '17',
-                                                    descriprion: 'qЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
+                                                    description: 'qЖенская сборная Беларуси выиграла эстафету в рамках соревнований по биатлону на Олимпийских играх в Пхёнчхане!!!',
                                                     createdAt: new Date('2018-02-23T23:00:00'),
                                                     author: 'Иванов Иван',
-                                                    photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg'
+                                                    photoLink: 'http://ont.by/webroot/delivery/files/news/2018/02/22/Dom.jpg',
+                                                    likes: ['Иванов Иван'],
+                                                    hashTags: ['женская', 'сборная']
                                                    }
 
-];
+]; 
 
+    function comparator(a,b){
+    let date_of_a=new Date(a.createdAt);
+    let date_of_b=new Date(b.createdAt);
+    return date_of_a-date_of_b;
 
-    function getPhotoPosts(skip=0, top=10, filterConfig){
-    let empty_for_filter[];
+    }
+
+    function getPhotoPost(id){
+        let i=0;
+        while(i<photoPosts.length){
+            if(Number(id)==photoPosts[i].id){
+            return photoPosts[i];
+            }
+            i++;
+            }
+        return -1;
+    }
+    function getIndex(id){
+        let i=0;
+        while(i<photoPosts.length){
+            if(Number(id)==photoPosts[i].id){
+            return i;
+            }
+            i++;
+            }
+        return -1;
+    }
+
+    function getPhotoPosts(skip=0, top=10, filterConfig={}){
+    let empty_for_filter = [];
+
     let i = skip;
     let count=0;
-    switch(filterConfig) {
-      case 'author':  // if (x === 'value1')
+    if(filterConfig.author!=undefined){
             while(i<photoPosts.length){
-            if(photoPosts[i].author==filterConfig){
-            empty_for_filter.push(photoPosts[i])
+            if(filterConfig.author==photoPosts[i].author){
+            empty_for_filter.push(photoPosts[i]);
             count++;
             }
             i++;
             }
-        [break]
+    }
+    if(filterConfig.description!=undefined){
+                               while(i<photoPosts.length){
+                        if(filterConfig.description==photoPosts[i].description){
+                        empty_for_filter.push(photoPosts[i]);
+                        count++;
+                        }
+                        i++;
+                        } 
+    }
+    if(filterConfig.id!=undefined){
+                               while(i<photoPosts.length){
+                               if(filterConfig.id==photoPosts[i].id){
+                               empty_for_filter.push(photoPosts[i]);
+                               count++;
+                               }
+                               i++;
+                               }
 
-      case 'description':  // if (x === 'value2')
 
-        [break]
+    }
+    if(filterConfig.createdAt!=undefined){
+                             while(i<photoPosts.length){
+                            if(photoPosts[i].createdAt==filterConfig.createdAt){
+                            empty_for_filter.push(photoPosts[i]);
+                            count++;
+                            }
+                            i++;
+                            }       
+    }
+    if(filterConfig.photoLink!=undefined){
+                                    while(i<photoPosts.length){
+                                    if(photoPosts[i].photoLink==filterConfig.photoLink){
+                                    empty_for_filter.push(photoPosts[i]);
+                                    count++;
+                                    }
+                                    i++;
+                                    }
+        
+    }
+    if(filterConfig.hashTags!=undefined){
+                                    while(i<photoPosts.length){
+                                    if(photoPosts[i].hashTags==filterConfig.hashTags){
+                                    empty_for_filter.push(photoPosts[i]);
+                                    count++;
+                                    }
+                                    i++;
+                                    }
+        
+    }
 
-      case 'id':  // if (x === 'value2')
+    if(!filterConfig.hasOwnProperty()){
+    empty_for_filter=photoPosts.slice(0, photoPosts.length);
+    }
 
-              [break]
-      case 'createdAt':  // if (x === 'value2')
+    empty_for_filter.sort(comparator);
+    empty_for_filter.splice(0,skip-1);
+    empty_for_filter.splice(top,empty_for_filter.length);
+    return empty_for_filter;
+    }
 
-        [break]
-      case 'photoLink':  // if (x === 'value2')
+    function validatePhotoPost(post){
+        check=true;
+        if(post.id===undefined){
+            return false;
+        }
+        else if (typeof(post.id) != 'string') {
+            return false;
+            
+        }
+            let i=0;
+            let timer=0;
+            while(i<photoPosts.length){
+                if(photoPosts[i].id==post.id){
+                    timer++;
+                }
+                i++;
+            }
+            if(timer>1){
+            console.log("Not unique id")
+            return false;
+            }
+        
 
-            [break]
-      default:
-        alert("Неправильный ввод");
-        [break]
+        if(post.description===undefined){
+            return false;
+        }
+        else if (typeof(post.description) != 'string') {
+            return false;
+        }
+        
+        if(post.description.length>=200){
+              return false;
+        }
+
+        if(post.hashTags!=undefined){
+            if (typeof(post.hashTags) != 'string') {
+                return false;
+            }
+        }
+        if(post.likes!=undefined){
+            if (typeof(post.likes) != 'string') {
+                return false;
+            }
+        }
+
+
+        if(post.createdAt===undefined){
+            return false;
+        }
+        else if (!(post.createdAt instanceof Date)) {
+            return false;
+        }
+
+        if(post.author===undefined){
+            return false;
+        }
+        else if (typeof(post.author) != 'string') {
+            return false;
+        }
+        if(post.author.length==0){
+            return false;
+        }
+
+        
+
+        if(post.photoLink===undefined){
+            return false;
+        }
+        else if (typeof(post.photoLink) != 'string') {
+            return false;
+        }
+        if(post.photoLink.length==0){
+            return false;
+        }
+
+        
+        if(check)
+        console.log("Valid data")
+        else
+        console.log("not valid")
+        return check;
+    }
+
+    function addPhotoPost(post){
+    if(validatePhotoPost(post)){
+        photoPosts.push(post);
+        return true;
+    }
+    else return false;
+    }
+
+    function editPhotoPost(id, obj){
+        if(validatePhotoPost){
+            let index=getIndex(id);
+            if(obj.description!=undefined){
+                photoPosts[index].description=obj.description;
+            }
+            if(obj.photoLink!=undefined){
+                photoPosts[index].photoLink=obj.photoLink;
+            }
+            if(obj.likes!=undefined){
+                photoPosts[index].likes=obj.likes;
+            }
+            if(obj.hashTags!=undefined){
+                photoPosts[index].hashTags=obj.hashTags;
+            }
+            return true;
+
+        }
+        else return false;
+    }
+
+    function removePhotoPost(id){
+        let index=getIndex(id);
+        if(index!=-1){
+            delete  photoPosts[index];
+        }
+        else return false;
     }
 
 
 
-    }
 
-
+console.log(getPhotoPosts(undefined,undefined, undefined));
+console.log("-------");
+console.log(getPhotoPost("3"));
+console.log("-------");
+console.log(validatePhotoPost(photoPosts[2]));
+console.log("-------");
+console.log(addPhotoPost(photoPosts[1]));
+console.log("-------");
+console.log(editPhotoPost(2,{description: 'all-parties.com'}));
+console.log("-------");
+console.log(removePhotoPost(1));
+console.log("-------");
 } ());
