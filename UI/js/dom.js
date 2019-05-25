@@ -560,9 +560,9 @@ class View {
 
     }
     authorization(login, password) {
-        for (let j = 0; j < Users.length; j++) {
-            if (Users[j].nickname === login && Users[j].password === password) {
-                user = Users[j];
+        for (let j = 0; j < users.length; j++) {
+            if (users[j].nickname === login && users[j].password === password) {
+                user = users[j];
                 this.setUser();
                 alert("Вход выполнен успешно");
                 return true;
@@ -635,16 +635,16 @@ class View {
     }
     addElementsToSelect() {
         let temp = document.getElementById("name");
-        temp.children[0].value = Users[0].name + " " + Users[0].surname;
-        temp.children[0].textContent = Users[0].name + " " + Users[0].surname;
-        for (let j = 1; j < Users.length; j++) {
+        temp.children[0].value = users[0].name + " " + users[0].surname;
+        temp.children[0].textContent = users[0].name + " " + users[0].surname;
+        for (let j = 1; j < users.length; j++) {
             temp.appendChild(temp.children[j - 1].cloneNode(true))
-            temp.children[j].value = Users[j].name + " " + Users[j].surname;
-            temp.children[j].textContent = Users[j].name + " " + Users[j].surname;
+            temp.children[j].value = users[j].name + " " + users[j].surname;
+            temp.children[j].textContent = users[j].name + " " + users[j].surname;
         }
     }
 }
-let Users = [{
+let users = [{
         name: "Ivan",
         surname: "Sukach",
         avatar: "img/myface.jpg",
