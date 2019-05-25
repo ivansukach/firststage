@@ -90,7 +90,7 @@
 }
  nav#menu #menuNav li {
      list-style: none;
-     padding: 2vw 0px;
+     padding: 2vw 0px 0px 0px;
      margin-right: 1vw;
      position: relative;
      display: inline-block;
@@ -238,7 +238,6 @@
      z-index: 1;
      transition: all 5s ease;
 }
-/* not my css*/
  .detail-box {
      width: 50%;
      padding: 20px;
@@ -287,7 +286,8 @@
 }
  .bg{
      position:absolute;
-     z-index:9999;
+     z-index:99;
+     overflow: hidden;
      width:100%;
      height:25%;
      font-size: 2vw;
@@ -306,6 +306,9 @@
      top:0;
      background: rgba(0, 0, 0, 0.3);
      z-index: 2000
+}
+ #authorizedUser *{
+     margin: 0 3vw;
 }
  .download{
      display: block;
@@ -359,7 +362,7 @@
      transform: scale(4.0);
 }
  .nb {
-     display: block;
+     display: none;
      height:40px;
      padding: 10px 30px;
      margin: 10px auto;
@@ -392,11 +395,8 @@
      left: 80%;
      transition: .5s ease-in-out;
 }
- .myPossibilities{
+ .my-possibilities{
      margin:1%;
-}
- #myEvents{
-     margin:1% 10% 1% 1%;
 }
  #avatar{
      border-radius:15%;
@@ -415,8 +415,71 @@
 }
  .inputs{
      padding: 0px 10%;
+     float: right;
+}
+#name{
+width: 160px;
 }
  #findIt{
      margin: 1% 1%;
 }
+ #description{
+     height: 125px;
+     width: 90%;
+}
+
+ .mobile-wrap {
+  max-width: 400px;
+  display: none;
+  height: auto;
+  right: 0;
+  position: absolute;
+  top: 0%;
+  z-index: 999;
+  margin: auto;
+/*  background-color: #5d4037; */
+  color: #fff;
+  border: 4px double black;
+}
+ .nav-wrap {
+  overflow: hidden;
+/*  background-color: #5d4037; */
+  position: relative;
+/*    border: 5px double black; */
+}
+.nav-wrap .nav-links {
+
+  display: none;
+    border: 5px black;
+
+}
+.nav-links a {
+    font-size: 3vw;
+}
+ .nav-wrap a {
+  color: #fff;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 2vw;
+  display: block;
+}
+ .nav-wrap a.icon {
+  background: #212121;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+  .nav-wrap a:hover {
+   background-color: #d7ccc8;
+  color: #000;
+}
+ .active {
+ display: none;
+  color: #fff;
+}
+ #addPost{
+ display: none;
+ }
+
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>ALL-PARTIES.COM | ВЕЧЕРИНКИ</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 </head>
@@ -11,9 +12,9 @@
 <div id="authorizedUser">
     <a href="#profile" class="my-possibilities">My Profile</a>
     <a href="#messages" class="my-possibilities">My Messages</a>
-    <a href="#events" id="myEvents">My Events</a>
-    <p class="my-possibilities">Иван Сукач</p>
-    <img src="img/myface.jpg" height="100%" id="avatar">
+    <a href="#events" class="my-possibilities">My Events</a>
+    <a class="my-possibilities" id="userName">Войти или зарегистрироваться</a>
+    <img src="img/bg5.png" height="100%" id="avatar">
 </div>
 <ul id="slides">
     <li class="slide showing">
@@ -88,6 +89,15 @@
     </div>
 </header>
 
+<form id="addPost">
+    <fieldset>
+        <p><label for="photo">Фото</label><span class="inputs"><input type="file" id="photo"></span></p>
+        <p><label for="description">Описание:</label></p>
+        <textarea id="description" maxlength="3000" placeholder="Добавитьте ваше описание, Сукач Иван"></textarea>
+        <p><label for="tags">Теги: </label><span class="inputs"><input type="text" id="tags"></span></p>
+    </fieldset>
+    <p><input type="submit" value="добавить" class="download" id="addPh"> </p>
+</form>
 
 
 <div id="work" class="page">
@@ -106,46 +116,34 @@
     <fieldset>
         <legend>Подбор по параметрам</legend>
         <p><label for="city">Город</label><span class="inputs"><input type="text" id="city"></span></p>
-        <p><label for="name">Автор:</label><span class="inputs"><input type="text" id="name"></span></p>
+        <p><label for="name">Автор:</label><span class="inputs"><select id="name"><option value="BlaBla">BlaBla</option> </select></span></p>
         <p><label for="date">Дата:</label><span class="inputs"><input type="text" id="date"></span></p>
         <p><label for="tag">Теги: </label><span class="inputs"><input type="text" id="tag"></span></p>
     </fieldset>
     <p><input type="submit" value="найти" class="download" id="findIt"> </p>
 </form>
 <div id="flexContainer">
-    <div class="element-of-fb"><img src="img/1st_party.jpg" width="100%"  height="100%"><div class="bg">Автор: Иван Сукач<br>Время добавления: 03:28 21.04.2019<br>Событие: 26.04.2019 состоится вечеринка в Раубичах<br>#Раубичи#Минск#вечеринка</div></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-
-    <div class="element-of-fb"><img src="img/2st_party.jpg" width="100%" height="100%">
-        <div class="bg">Автор: Иван Сукач<br>Время добавления: 03:28 21.04.2019<br>Событие: 27.04.2019 состоится Лола и Лейла будут ждать тебя на яхте<br>#Яхта#Минск#вечеринка</div>
-
-    </div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element-of-fb"><img src="img/велотуса.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element-of-fb"><img src="img/на тачках.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element-of-fb"><img src="img/yacht.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-
-    <div class="element-of-fb"><img src="img/s1200.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element-of-fb"><img src="img/автобус.png" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element-of-fb"><img src="img/пляжный волейбол.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element-of-fb"><img src="img/посиделки.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element-of-fb"><img src="img/рокконцерт.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
+    <template id="tmpl">
+        <div class="element-of-fb"><img src="img/1st_party.jpg" width="100%"  height="100%"><pre class="bg">Автор: Иван Сукач<br>Время добавления: 03:28 21.04.2019<br>Событие: 26.04.2019 состоится вечеринка в Раубичах<br>#Раубичи#Минск#вечеринка</pre>
+            <div class="mobile-wrap">
+                <div class="nav-wrap">
+                    <a class="active">...</a>
+                    <nav class="nav-links" >
+                        <a class="edit">Редактировать</a>
+                        <a class="delete">Удалить</a>
+                        <a class="share">Поделиться</a></nav>
+                    <a class="icon"  onclick="changeSize(this)">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </div>
 
 
-    <div class="element-of-fb"><img src="img/стритрейсеры.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element-of-fb"><img src="img/флет.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element-of-fb"><img src="img/шашлындос.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
+
+        </div>
+        <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
+
+    </template>
 </div>
 
 
@@ -158,6 +156,7 @@
     <p class="goodbye">&copy;2019 ALL-PARTIES.COM by <a href="https://vk.com/steel.muscles">"APP-DEVELOPMENT"</a> second-year student from group №6 Ivan Sukach<br> vsukach1999@gmail.com<br> 21.04.2019</p>
 
 </footer>
+<script src="js/dom.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
