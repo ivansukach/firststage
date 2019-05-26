@@ -91,7 +91,7 @@
 
 <form id="addPost">
     <fieldset>
-        <p><label for="photo">Фото</label><span class="inputs"><input type="file" id="photo"></span></p>
+        <p><label for="photo">Фото</label><span class="inputs"><input type="text" id="photo"></span></p>
         <p><label for="description">Описание:</label></p>
         <textarea id="description" maxlength="3000" placeholder="Добавитьте ваше описание, Сукач Иван"></textarea>
         <p><label for="tags">Теги: </label><span class="inputs"><input type="text" id="tags"></span></p>
@@ -129,9 +129,9 @@
                 <div class="nav-wrap">
                     <a class="active">...</a>
                     <nav class="nav-links" >
+                        <a class="share">Поделиться</a>
                         <a class="edit">Редактировать</a>
-                        <a class="delete">Удалить</a>
-                        <a class="share">Поделиться</a></nav>
+                        <a class="delete">Удалить</a></nav>
                     <a class="icon"  onclick="changeSize(this)">
                         <i class="fa fa-bars"></i>
                     </a>

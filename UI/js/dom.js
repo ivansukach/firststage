@@ -304,14 +304,14 @@ var Module = (function() {
         new Post('0',
             '26.04.2019 Состоится вечеринка в Сороковщине',
             new Date('2018-02-23T23:00:00'),
-            'Иван Сукач',
+            'ivan.suka_ch',
             'https://oper.ru/static/data/gallery/l1048754573.jpg',
             ['Сукач Иван'],
             ['Раубичи', 'Минск', 'Вечеринка']),
         new Post('1',
             '26.04.2019 Состоится вечеринка в Раубичах',
             new Date('2018-02-23T23:00:00'),
-            'Иван Сукач',
+            'ivan.suka_ch',
             'img/1st_party.jpg',
             ['Сукач Иван'],
             ['Раубичи', 'Минск', 'Вечеринка']),
@@ -346,28 +346,28 @@ var Module = (function() {
         new Post('6',
             'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!',
             new Date('2018-02-23T23:00:00'),
-            'Sukach Ivan',
+            'ivan.suka_ch',
             'img/s1200.jpg',
             ['Иванов Иван'],
             ['женская', 'сборная']),
         new Post('7',
             'fffffffffffffffffffffff!!!',
             new Date('2018-02-23T23:00:00'),
-            'Сукач Иван',
+            'ivan.suka_ch',
             'img/автобус.png',
             ['Иванов Иван'],
             ['женская', 'сборная']),
         new Post('8',
             'ggggggggggggggggggggggggggggggggggggggggggg!!!',
             new Date('2018-02-23T23:00:00'),
-            'Сукач Иван',
+            'ivan.suka_ch',
             'img/пляжный волейбол.jpg',
             ['Иванов Иван'],
             ['женская', 'сборная']),
         new Post('9',
             'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!',
             new Date('2018-02-23T23:00:00'),
-            'Сукач Иван',
+            'ivan.suka_ch',
             'img/посиделки.jpg',
             ['Иванов Иван'],
             ['женская', 'сборная'])
@@ -376,7 +376,7 @@ var Module = (function() {
         new Post('10',
             'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj!!!',
             new Date('2018-02-23T23:00:00'),
-            'Сукач Иван',
+            'ivan.suka_ch',
             'img/рокконцерт.jpg',
             ['Иванов Иван'],
             ['женская', 'сборная']),
@@ -620,10 +620,14 @@ class View {
     }
     displayElementsForCurrentUser() {
         if (this.isThereAnyUser()) {
-            let menus = document.getElementsByClassName("mobile-wrap");
+            let menus = document.getElementsByClassName("nav-wrap");
             let wissList = document.getElementsByClassName("nb");
             for (let j = 0; j < menus.length; j++) {
-                menus[j].style.display = "block";
+
+                if(Module.postCollection._photoPosts[j].author===user.nickname){
+                menus[j].children[1].children[1].style.display = "block";
+                menus[j].children[1].children[2].style.display = "block";
+                }
                 wissList[j].style.display = "block";
             }
             let form = document.getElementById("addPost");
