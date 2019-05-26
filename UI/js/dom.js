@@ -304,14 +304,14 @@ var Module = (function() {
         new Post('0',
             '26.04.2019 Состоится вечеринка в Сороковщине',
             new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
+            'Иван Сукач',
             'https://oper.ru/static/data/gallery/l1048754573.jpg',
             ['Сукач Иван'],
             ['Раубичи', 'Минск', 'Вечеринка']),
         new Post('1',
             '26.04.2019 Состоится вечеринка в Раубичах',
             new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
+            'Иван Сукач',
             'img/1st_party.jpg',
             ['Сукач Иван'],
             ['Раубичи', 'Минск', 'Вечеринка']),
@@ -346,28 +346,28 @@ var Module = (function() {
         new Post('6',
             'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!',
             new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
+            'Sukach Ivan',
             'img/s1200.jpg',
             ['Иванов Иван'],
             ['женская', 'сборная']),
         new Post('7',
             'fffffffffffffffffffffff!!!',
             new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
+            'Сукач Иван',
             'img/автобус.png',
             ['Иванов Иван'],
             ['женская', 'сборная']),
         new Post('8',
             'ggggggggggggggggggggggggggggggggggggggggggg!!!',
             new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
+            'Сукач Иван',
             'img/пляжный волейбол.jpg',
             ['Иванов Иван'],
             ['женская', 'сборная']),
         new Post('9',
             'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!',
             new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
+            'Сукач Иван',
             'img/посиделки.jpg',
             ['Иванов Иван'],
             ['женская', 'сборная'])
@@ -376,7 +376,7 @@ var Module = (function() {
         new Post('10',
             'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj!!!',
             new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
+            'Сукач Иван',
             'img/рокконцерт.jpg',
             ['Иванов Иван'],
             ['женская', 'сборная']),
@@ -512,7 +512,7 @@ class View {
         emptyPost.id = '' + this._currentId;
         emptyPost.description = description;
         emptyPost.createdAt = new Date();
-        emptyPost.author = document.getElementById('userName').textContent;
+        emptyPost.author = user.nickname;
         emptyPost.photoLink = photo;
         let arr = tags.split(', ');
         emptyPost.hashTags = arr;
@@ -560,9 +560,9 @@ class View {
 
     }
     authorization(login, password) {
-        for (let j = 0; j < users.length; j++) {
-            if (users[j].nickname === login && users[j].password === password) {
-                user = users[j];
+        for (let j = 0; j < Users.length; j++) {
+            if (Users[j].nickname === login && Users[j].password === password) {
+                user = Users[j];
                 this.setUser();
                 alert("Вход выполнен успешно");
                 return true;
@@ -620,14 +620,10 @@ class View {
     }
     displayElementsForCurrentUser() {
         if (this.isThereAnyUser()) {
-            let menus = document.getElementsByClassName("nav-wrap");
+            let menus = document.getElementsByClassName("mobile-wrap");
             let wissList = document.getElementsByClassName("nb");
             for (let j = 0; j < menus.length; j++) {
-
-                if(Module.postCollection._photoPosts[j].author===user.nickname){
-                menus[j].children[1].children[1].style.display = "block";
-                menus[j].children[1].children[2].style.display = "block";
-                }
+                menus[j].style.display = "block";
                 wissList[j].style.display = "block";
             }
             let form = document.getElementById("addPost");
@@ -639,16 +635,16 @@ class View {
     }
     addElementsToSelect() {
         let temp = document.getElementById("name");
-        temp.children[0].value = users[0].name + " " + users[0].surname;
-        temp.children[0].textContent = users[0].name + " " + users[0].surname;
-        for (let j = 1; j < users.length; j++) {
+        temp.children[0].value = Users[0].name + " " + Users[0].surname;
+        temp.children[0].textContent = Users[0].name + " " + Users[0].surname;
+        for (let j = 1; j < Users.length; j++) {
             temp.appendChild(temp.children[j - 1].cloneNode(true))
-            temp.children[j].value = users[j].name + " " + users[j].surname;
-            temp.children[j].textContent = users[j].name + " " + users[j].surname;
+            temp.children[j].value = Users[j].name + " " + Users[j].surname;
+            temp.children[j].textContent = Users[j].name + " " + Users[j].surname;
         }
     }
 }
-let users = [{
+let Users = [{
         name: "Ivan",
         surname: "Sukach",
         avatar: "img/myface.jpg",

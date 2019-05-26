@@ -573,3 +573,7 @@ footer .goodbye {
 #addPost {
 	display: none;
 }
+.emptyBlock{
+height: 70px;
+width: 100%;
+}
