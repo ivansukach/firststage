@@ -443,17 +443,6 @@ var Module = (function() {
 
 
 
-let t = document.querySelector('#tmpl');
-let inn = t.content;
-let flex = document.querySelector('#flexContainer');
-let options = {
-    hour: 'numeric',
-    minute: 'numeric',
-    day: 'numeric',
-    month: 'numeric',
-    year: 'numeric'
-};
-let user;
 class View {
     constructor() {
         this._blocks = [];
@@ -653,21 +642,67 @@ class View {
             temp.children[j].textContent = users[j].name + " " + users[j].surname;
         }
     }
-}
-let display = new View();
-let downloadOn = document.getElementById("addPh");
-downloadOn.addEventListener("click", function(event) {event.preventDefault(); display.downloadOnSite();});
-display.dynamicDownload();
-display.authorization("ivan.suka_ch", "aaa12");
-display.authorization("ivan.suka_ch", "aaa123");
-display.displayElementsForCurrentUser();
-display.editPostOnSite("elemId0", {
-    photoLink: "https://frazy.su/wp-content/uploads/2016/06/34741.jpg"
-});
-display.deleteFromSite("elemId1");
-display.deleteFromSite("elemId3");
-display.deleteFromSite("elemId4");
-display.deleteFromSite("elemId5");
+    registration(formContent){
+            let emptyUser = {
+                name: '',
+                surname: '',
+                avatar: '',
+                age: 0,
+                posts: [],
+                nickname: '',
+                password: '',
+                friends: []
+            };
+            emptyUser.name=formContent.children[1].children[1].children[0].value;
+            console.log(emptyUser.name);
+            emptyUser.surname=formContent.children[2].children[1].children[0].value;
+            console.log(emptyUser.surname);
+            emptyUser.age=Number(formContent.children[3].children[1].children[0].value);
+            console.log(emptyUser.age);
+            emptyUser.nickname=formContent.children[4].children[1].children[0].value;
+            console.log(emptyUser.nickname);
+            emptyUser.password=formContent.children[5].children[1].children[0].value;
+            console.log(emptyUser.password);
+            let passwordCopy=formContent.children[6].children[1].children[0].value;
+            if(emptyUser.name === '' || emptyUser.surname === '' ){
+                alert("Введены не все поля");
+                return false;
+            }
+            if(emptyUser.age === 0 || emptyUser.nickname === '' ){
+                alert("Введены не все поля");
+                return false;
+            }
+            if(emptyUser.password === '' || passwordCopy === '' ){
+                alert("Введены не все поля");
+                return false;
+            }
+            if(emptyUser.password!=passwordCopy){
+                alert("Пароли не совпадают");
+                return false;
+            }
 
-display.downloadOnSite("https://frazy.su/wp-content/uploads/2016/06/34741.jpg", "aaa", "allo, hallo");
-display.downloadOnSite("https://www.grekomania.ru/images/greek-articles/other/big/354_santorini-sunset-1.jpg", "aaa", "allo, hallo");
+            users.push(emptyUser);
+            return true;
+    }
+}
+
+let display = new View();
+//let downloadOn = document.getElementById("addPh");
+let form3 = document.getElementById("form3");
+
+console.log(form3);
+form3.addEventListener("submit", function(event)  {event.preventDefault();alert("hello world"); display.registration(this);});
+//display.dynamicDownload();
+//display.authorization("ivan.suka_ch", "aaa12");
+//display.authorization("ivan.suka_ch", "aaa123");
+//display.displayElementsForCurrentUser();
+//display.editPostOnSite("elemId0", {
+//    photoLink: "https://frazy.su/wp-content/uploads/2016/06/34741.jpg"
+//});
+//display.deleteFromSite("elemId1");
+//display.deleteFromSite("elemId3");
+//display.deleteFromSite("elemId4");
+//display.deleteFromSite("elemId5");
+//
+//display.downloadOnSite("https://frazy.su/wp-content/uploads/2016/06/34741.jpg", "aaa", "allo, hallo");
+//display.downloadOnSite("https://www.grekomania.ru/images/greek-articles/other/big/354_santorini-sunset-1.jpg", "aaa", "allo, hallo");
