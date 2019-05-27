@@ -1,0 +1,30 @@
+
+.flex-box{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Verdana';
+	font-weight: 500;
+	font-size: 1.5vw;
+	color: rgb(0,150,150);
+	position: relative;
+}
+#form2{
+width: 40vw;
+}
+#form3{
+width: 50vw;
+}
+#form2 fieldset{
+	border: 0 none;
+}
+#form3 fieldset{
+	border: 0 none;
+}
+#form2 input{
+    border-radius: 1vw;
+}
+#form3 input{
+    border-radius: 1vw;
+}

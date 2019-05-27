@@ -4,49 +4,50 @@
     <meta charset="UTF-8">
     <title>ALL-PARTIES.COM | ВЕЧЕРИНКИ</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 </head>
 <body>
-<div id="authorized_user">
-    <a href="#profile" style="margin:1%">My Profile</a>
-    <a href="#messages" style="margin:1%">My Messages</a>
-    <a href="#events" style="margin:1% 10% 1% 1%">My Events</a>
-    <p style="margin:1%">Иван Сукач</p>
-    <img src="img/myface.jpg" height="100%" style="border-radius:15%">
+<div id="authorizedUser">
+    <a href="#profile" class="my-possibilities">My Profile</a>
+    <a href="#messages" class="my-possibilities">My Messages</a>
+    <a href="#events" class="my-possibilities">My Events</a>
+    <a class="my-possibilities" id="userName" href="registration.html">Войти или зарегистрироваться</a>
+    <img src="img/bg5.png" height="100%" id="avatar">
 </div>
 <ul id="slides">
     <li class="slide showing">
         <img src="img/1st_party.jpg" width="100%"  height="100%">
 
-            <div class="detail-box" style="bottom: 30%;">
-                <h3 class="detail-title">ALL-PARTIES.COM | ВЕЧЕРИНКИ</h3>
-                <span class="detail-desc">24.04 22:00 вечеринка в Раубичах</span>
-                <a href="https://www.vk.com/steel.muscles" target="_blanck">
-                    <button class="detail-button btn btn-medium btn-primary" style="color: #3781ce">Подробнее</button>
-                </a>
-            </div>
+        <div class="detail-box" id="detailBox1">
+            <h3 class="detail-title">ALL-PARTIES.COM | ВЕЧЕРИНКИ</h3>
+            <span class="detail-desc">24.04 22:00 вечеринка в Раубичах</span>
+            <a href="https://www.vk.com/steel.muscles" target="_blanck">
+                <button class="detail-button btn btn-medium btn-primary" >Подробнее</button>
+            </a>
+        </div>
     </li>
     <li class="slide">
         <img src="img/2st_party.jpg" width="100%" height="100%">
-            <div class="detail-box" style="bottom: 30%;">
-                <h3 class="detail-title">ALL-PARTIES.COM | ВЕЧЕРИНКИ</h3>
-                <span class="detail-desc">Лола и Лейла  уже ждут тебя на яхте. Нужно поспешить)</span>
-                <a href="https://www.vk.com/steel.muscles" target="_blanck">
-                    <button class="detail-button btn btn-medium btn-primary" style="color: #3781ce">Подробнее</button>
-                </a>
-            </div>
+        <div class="detail-box" id="detailBox2">
+            <h3 class="detail-title">ALL-PARTIES.COM | ВЕЧЕРИНКИ</h3>
+            <span class="detail-desc">Лола и Лейла  уже ждут тебя на яхте. Нужно поспешить)</span>
+            <a href="https://www.vk.com/steel.muscles" target="_blanck">
+                <button class="detail-button btn btn-medium btn-primary" >Подробнее</button>
+            </a>
+        </div>
     </li>
     <li class="slide">
         <img src="img/велотуса.jpg" width="100%" height="100%">
 
-            <div class="detail-box" style="bottom: 30%;">
-                <h3 class="detail-title">ALL-PARTIES.COM | ВЕЧЕРИНКИ</h3>
-                <span class="detail-desc">22.04 Велопробег Парк Горького -> Раубичи</span>
-                <a href="https://www.vk.com/steel.muscles" target="_blanck">
-                    <button class="detail-button btn btn-medium btn-primary" style="color: #3781ce">Подробнее</button>
-                </a>
-            </div>
+        <div class="detail-box" id="detailBox3">
+            <h3 class="detail-title">ALL-PARTIES.COM | ВЕЧЕРИНКИ</h3>
+            <span class="detail-desc">22.04 Велопробег Парк Горького -> Раубичи</span>
+            <a href="https://www.vk.com/steel.muscles" target="_blanck">
+                <button class="detail-button btn btn-medium btn-primary" >Подробнее</button>
+            </a>
+        </div>
 
     </li>
     <li class="slide"><img src="img/на тачках.jpg" width="100%" height="100%"></li>
@@ -63,17 +64,16 @@
 <!-- Header -->
 <header>
     <div class="sticky-nav">
-        <a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
 
-        <div id="logo">
-            <a id="goUp" href="#home-slider" title="ALL-PARTIES.COM">ALL-PARTIES.COM</a>
-        </div>
+
 
         <nav id="menu">
-            <ul id="menu-nav">
-                <li class="current"><a href="#home-slider">ГЛАВНАЯ</a></li>
-                <li><a href="#work">ВХОД || РЕГИСТРАЦИЯ</a></li>
-                <li><a href="#new">ДОБАВИТЬ ПОСТ</a></li>
+
+            <ul id="menuNav">
+
+                <li class="current"><a href="#slides">ГЛАВНАЯ</a></li>
+                <li><a href="registration.html">ВХОД || РЕГИСТРАЦИЯ</a></li>
+                <li><a href="#addPost">ДОБАВИТЬ ПОСТ</a></li>
                 <li><a href="#search">НАЙТИ КОМПАНИЮ</a></li>
                 <li><a href="#cart">КОРЗИНА</a></li>
                 <li><a href="#about">О НАС</a></li>
@@ -81,69 +81,81 @@
                 <li><a href="#contact">РЕКЛАМА И СОТРУДНИЧЕСТВО</a></li>
 
             </ul>
+            <div id="logo">
+                <a id="goUp" href="#slides" title="ALL-PARTIES.COM">ALL-PARTIES.COM</a>
+            </div>
         </nav>
 
     </div>
 </header>
 
+<form id="addPost">
+    <fieldset>
+        <p><label for="photo">Фото</label><span class="inputs"><input type="text" id="photo"></span></p>
+        <p><label for="description">Описание:</label></p>
+        <textarea id="description" maxlength="3000" placeholder="Добавитьте ваше описание, Сукач Иван"></textarea>
+        <p><label for="tags">Теги: </label><span class="inputs"><input type="text" id="tags"></span></p>
+    </fieldset>
+    <p><input type="submit" value="добавить" class="download" id="addPh"> </p>
+</form>
 
 
 <div id="work" class="page">
     <div class="container">
 
-            <div class="span12">
-                <div class="title-page">
-                    <h2 class="title">НАША ДЕЯТЕЛЬНОСТЬ</h2>
-                    <h3 class="title-description">На данном сайте вы сможете организовать вечеринку или собрать компанию для совместного времяпровождения</h3>
-                </div>
+        <div class="span12">
+            <div class="title-page">
+                <h2 class="title">НАША ДЕЯТЕЛЬНОСТЬ</h2>
+                <h3 class="title-description">На данном сайте вы сможете организовать вечеринку или собрать компанию для совместного времяпровождения</h3>
             </div>
+        </div>
 
     </div>
 </div>
-<form style="width:33%">
+<form id="form">
     <fieldset>
         <legend>Подбор по параметрам</legend>
-        <p><label for="city">Город</label><span style="padding: 0px 10%;"><input type="text" id="city"></span></p>
-        <p><label for="name">Автор:</label><span style="padding: 0px 9%;"><input type="text" id="name"></span></p>
-        <p><label for="date">Дата:</label><span style="padding: 0px 10%;"><input type="text" id="date"></span></p>
-        <p><label for="tag">Теги: </label><span style="padding: 0px 10%;"><input type="text" id="tag"></span></p>
+        <p><label for="city">Город</label><span class="inputs"><input type="text" id="city"></span></p>
+        <p><label for="name">Автор:</label><span class="inputs"><select id="name"><option value="BlaBla">BlaBla</option> </select></span></p>
+        <p><label for="date">Дата:</label><span class="inputs"><input type="text" id="date"></span></p>
+        <p><label for="tag">Теги: </label><span class="inputs"><input type="text" id="tag"></span></p>
     </fieldset>
-    <p><input type="submit" value="найти" class="download" style="margin: 1% 1%;"> </p>
+    <p><input type="submit" value="найти" class="download" id="findIt"> </p>
 </form>
-<div id="flex-container">
-    <div class="element_of_fb"><img src="img/1st_party.jpg" width="100%"  height="100%"><div class="bg">Автор: Иван Сукач<br>Время добавления: 03:28 21.04.2019<br>Событие: 26.04.2019 состоится вечеринка в Раубичах<br>#Раубичи#Минск#вечеринка</div></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-
-    <div class="element_of_fb"><img src="img/2st_party.jpg" width="100%" height="100%">
-        <div class="bg">Автор: Иван Сукач<br>Время добавления: 03:28 21.04.2019<br>Событие: 27.04.2019 состоится Лола и Лейла будут ждать тебя на яхте<br>#Яхта#Минск#вечеринка</div>
-
-    </div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element_of_fb"><img src="img/велотуса.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element_of_fb"><img src="img/на тачках.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element_of_fb"><img src="img/yacht.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-
-    <div class="element_of_fb"><img src="img/s1200.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element_of_fb"><img src="img/автобус.png" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element_of_fb"><img src="img/пляжный волейбол.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element_of_fb"><img src="img/посиделки.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element_of_fb"><img src="img/рокконцерт.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
+<div id="flexContainer">
+    <template id="tmpl">
+        <div class="element-of-fb"><img src="img/1st_party.jpg" width="100%"  height="100%"><pre class="bg">Автор: Иван Сукач<br>Время добавления: 03:28 21.04.2019<br>Событие: 26.04.2019 состоится вечеринка в Раубичах<br>#Раубичи#Минск#вечеринка</pre>
+            <div class="mobile-wrap">
+                <div class="nav-wrap">
+                    <a class="active">...</a>
+                    <nav class="nav-links" >
+                        <a class="share">Поделиться</a>
+                        <a class="edit">Редактировать</a>
+                        <a class="delete">Удалить</a></nav>
+                    <a class="icon"  onclick="changeSize(this)">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </div>
 
 
-    <div class="element_of_fb"><img src="img/стритрейсеры.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element_of_fb"><img src="img/флет.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
-    <div class="element_of_fb"><img src="img/шашлындос.jpg" width="100%" height="100%"></div>
-    <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
+
+
+        </div>
+        <button class="nb" href="http://htmlbook.ru/css/active">Добавить в «Мои желания»</button>
+        <form class="editPost">
+            <fieldset>
+                <p><label>Фото</label><span class="inputs"><input type="text" class="photoE"></span></p>
+                <p><label>Описание:</label></p>
+                <textarea class="descriptionE" maxlength="3000" placeholder="Добавитьте ваше описание, Сукач Иван"></textarea>
+                <p><label>Теги: </label><span class="inputs"><input type="text" class="tagsE"></span></p>
+            </fieldset>
+            <p><input type="submit" value="добавить" class="download" id="editP"> </p>
+        </form>
+
+    </template>
+    <template id="tmpl2">
+    </template>
 </div>
 
 
@@ -156,6 +168,8 @@
     <p class="goodbye">&copy;2019 ALL-PARTIES.COM by <a href="https://vk.com/steel.muscles">"APP-DEVELOPMENT"</a> second-year student from group №6 Ivan Sukach<br> vsukach1999@gmail.com<br> 21.04.2019</p>
 
 </footer>
+<script src="js/users.js"></script>
+<script src="js/dom.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

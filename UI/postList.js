@@ -75,11 +75,15 @@ class Post {
 
 
 
-class postList {
+class PostList {
     constructor(posts) {
         this._photoPosts = [];
         for (let i = 0; i < posts.length; i++) {
+            if(PostList.validate(posts[i])){
             this._photoPosts.push(posts[i]);
+            } else {
+            console.log("not valid");
+            }
         }
 
         console.log('Происходит создание массива объектов');
@@ -238,32 +242,37 @@ class postList {
         return check;
     }
     add(post) {
-        if (postList.validate(post)) {
+        if (PostList.validate(post)) {
             this._photoPosts.push(post);
             return true;
         } else return false;
     }
     edit(id, obj) {
-        if (postList.validate(obj)) {
-            let index = this.getIndex(id);
+        let postForValidation = this.get(id);
+
+
             if (obj.description != undefined) {
-                this._photoPosts[index].description = obj.description;
+                postForValidation.description = obj.description;
             }
             if (obj.photoLink != undefined) {
-                this._photoPosts[index].photoLink = obj.photoLink;
+                postForValidation.photoLink = obj.photoLink;
             }
             if (obj.likes != undefined) {
                 for (let i = 0; i < obj.likes.length; i++) {
-                    this._photoPosts[index].likes[i] = obj.likes[i];
+                    postForValidation.likes[i] = obj.likes[i];
                 }
             }
             if (obj.hashTags != undefined) {
 
                 for (let i = 0; i < obj.hashTags.length; i++)
-                    this._photoPosts[index].hashTags[i] = obj.hashTags[i];
+                    postForValidation.hashTags[i] = obj.hashTags[i];
             }
-            return true;
 
+
+        if (PostList.validate(postForValidation)){
+        this.remove(id);
+        this.add(postForValidation);
+        return true;
         } else return false;
     }
     remove(id) {
@@ -276,7 +285,7 @@ class postList {
     addAll(mas) {
         let not_validate = [];
         for (let i = 0; i < mas.length; i++) {
-            if (postList.validate(mas[i])) {
+            if (PostList.validate(mas[i])) {
                 this._photoPosts.push(mas[i]);
             } else {
                 not_validate.push(mas[i]);
