@@ -706,6 +706,25 @@ class View {
 
 
     }
+    addedLikes(button){
+        let idd=button.id;
+        let arr=idd.split('elemId');
+        let id=arr[1].split('B')[0];
+        let index = Module.postCollection.getIndex(id);
+        for(let j=0; j< Module.postCollection._photoPosts[index].likes.length; j++){
+            if(Module.postCollection._photoPosts[index].likes[j]==activeUser.nickname){
+                alert("Сожалеем, но нельзя поставить более одного лайка...");
+                return false;
+
+            }
+
+
+        }
+        Module.postCollection._photoPosts[index].likes.push(activeUser.nickname);
+        alert("Лайк поставлен");
+
+
+    }
     addElementsToSelect() {
         let temp = document.getElementById("name");
         temp.children[0].value = users[0].name + " " + users[0].surname;
@@ -733,6 +752,11 @@ for(let j=0; j<edits.length; j++){
 let deletes = document.getElementsByClassName("delete");
 for(let j=0; j<deletes.length; j++){
     deletes[j].addEventListener("click", function(event){alert("Форма снизу"); display.deleteFromSite(this);});
+}
+
+let likeButtons = document.getElementsByClassName("nb");
+for(let j=0; j<likeButtons.length; j++){
+    likeButtons[j].addEventListener("click", function(event){alert("Добавлено"); display.addedLikes(this);});
 }
 
 let editForms = document.getElementsByClassName("editPost");
