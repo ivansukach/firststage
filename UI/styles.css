@@ -574,6 +574,9 @@ footer .goodbye {
 	display: none;
 }
 .emptyBlock{
-height: 70px;
-width: 100%;
+    height: 70px;
+    width: 100%;
+}
+.editPost{
+    display: none;
 }

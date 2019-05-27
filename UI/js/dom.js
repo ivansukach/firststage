@@ -95,6 +95,20 @@ class PostList {
         return date_of_a - date_of_b;
 
     }
+    saveToJSON(){
+        let list = JSON.stringify(this._photoPosts);
+        localStorage.setItem("photoPosts", list);
+        Module.photoPosts=this._photoPosts;
+    }
+    getFromJSON(){
+        let list = localStorage.getItem("photoPosts");
+        console.log(list);
+        let postNewCollection = JSON.parse(list);
+        console.log(postNewCollection);
+        Module.photoPosts = postNewCollection;
+        Module;
+        this.getPage(0,0,undefined);
+    }
 
 
 
@@ -217,7 +231,7 @@ class PostList {
             }
 
 
-        if (post.createdAt === undefined || !(post.createdAt instanceof Date)) {
+        if (post.createdAt === undefined || (!(post.createdAt instanceof Date) && (typeof(post.createdAt) != 'string'))) {
             return false;
         }
 
@@ -300,139 +314,164 @@ class PostList {
 
 };
 var Module = (function() {
-    let photoPosts = [
-        new Post('0',
-            '26.04.2019 Состоится вечеринка в Сороковщине',
-            new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
-            'https://oper.ru/static/data/gallery/l1048754573.jpg',
-            ['Сукач Иван'],
-            ['Раубичи', 'Минск', 'Вечеринка']),
-        new Post('1',
-            '26.04.2019 Состоится вечеринка в Раубичах',
-            new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
-            'img/1st_party.jpg',
-            ['Сукач Иван'],
-            ['Раубичи', 'Минск', 'Вечеринка']),
-        new Post('2',
-            '27.04.2019 Лола и Лейла будут ждать тебя на яхте',
-            new Date('2018-02-23T23:00:00'),
-            'Дутин Валентин',
-            'img/2st_party.jpg',
-            ['Сукач Иван'],
-            ['Яхта', 'Вечеринка', 'Минск']),
-        new Post('3',
-            'bbbbbbbbbbb!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Егор',
-            'img/велотуса.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('4',
-            'cccccccccccccccccccccccccccc!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Даниил',
-            'img/на тачках.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('5',
-            'ddddddddddddddddddddddddddddddd!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Иван',
-            'img/yacht.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('6',
-            'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!',
-            new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
-            'img/s1200.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('7',
-            'fffffffffffffffffffffff!!!',
-            new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
-            'img/автобус.png',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('8',
-            'ggggggggggggggggggggggggggggggggggggggggggg!!!',
-            new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
-            'img/пляжный волейбол.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('9',
-            'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!',
-            new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
-            'img/посиделки.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная'])
+    let list = localStorage.getItem("photoPosts");
+    console.log(list);
+    let postForm = JSON.parse(list);
+    console.log(postForm);
+    let photoPosts = [];
+    for(let j=0; j< postForm.length;j++){
+        let id = postForm[j]._id;
+        console.log(id);
+        let description = postForm[j]._description;
+        console.log(description);
+        let createdAt=postForm[j]._createdAt;
+        console.log(createdAt);
+        let author = postForm[j]._author;
+        console.log(author);
+        let photoLink = postForm[j]._photoLink;
+        console.log(photoLink);
+        let likes =  postForm[j]._likes;
+        console.log(likes);
+        let hashTags = postForm[j]._hashTags;
+        console.log(hashTags);
+        let post = new Post(id, description, createdAt, author, photoLink, likes, hashTags);
+        photoPosts.push( post );
+    }
 
-        ,
-        new Post('10',
-            'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj!!!',
-            new Date('2018-02-23T23:00:00'),
-            'ivan.suka_ch',
-            'img/рокконцерт.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('11',
-            'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Иван',
-            'img/стритрейсеры.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-
-        new Post('12',
-            'l!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Иван',
-            'img/флет.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('13',
-            'm!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Иван',
-            'img/шашлындос.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('14',
-            'n!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Иван',
-            'http://www.vascoplanet.com/pictures/large/7920ed.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('15',
-            'o!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Иван',
-            'https://s.zagranitsa.com/images/articles/3580/870x486/4b3f99d416a1ba4467accc568b6402c0.jpg?1463482530',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('16',
-            'p!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Иван',
-            'https://www.grekomania.ru/images/greek-articles/other/big/354_santorini-sunset-1.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная']),
-        new Post('17',
-            'q!!!',
-            new Date('2018-02-23T23:00:00'),
-            'Иванов Иван',
-            'https://frazy.su/wp-content/uploads/2016/06/34741.jpg',
-            ['Иванов Иван'],
-            ['женская', 'сборная'])
-
-
-    ];
+//    let photoPosts = [
+//        new Post('0',
+//            '26.04.2019 Состоится вечеринка в Сороковщине',
+//            new Date('2018-02-23T23:00:00'),
+//            'ivan.suka_ch',
+//            'https://oper.ru/static/data/gallery/l1048754573.jpg',
+//            ['Сукач Иван'],
+//            ['Раубичи', 'Минск', 'Вечеринка']),
+//        new Post('1',
+//            '26.04.2019 Состоится вечеринка в Раубичах',
+//            new Date('2018-02-23T23:00:00'),
+//            'ivan.suka_ch',
+//            'img/1st_party.jpg',
+//            ['Сукач Иван'],
+//            ['Раубичи', 'Минск', 'Вечеринка']),
+//        new Post('2',
+//            '27.04.2019 Лола и Лейла будут ждать тебя на яхте',
+//            new Date('2018-02-23T23:00:00'),
+//            'Дутин Валентин',
+//            'img/2st_party.jpg',
+//            ['Сукач Иван'],
+//            ['Яхта', 'Вечеринка', 'Минск']),
+//        new Post('3',
+//            'bbbbbbbbbbb!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Егор',
+//            'img/велотуса.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('4',
+//            'cccccccccccccccccccccccccccc!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Даниил',
+//            'img/на тачках.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('5',
+//            'ddddddddddddddddddddddddddddddd!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Иван',
+//            'img/yacht.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('6',
+//            'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'ivan.suka_ch',
+//            'img/s1200.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('7',
+//            'fffffffffffffffffffffff!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'ivan.suka_ch',
+//            'img/автобус.png',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('8',
+//            'ggggggggggggggggggggggggggggggggggggggggggg!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'ivan.suka_ch',
+//            'img/пляжный волейбол.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('9',
+//            'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'ivan.suka_ch',
+//            'img/посиделки.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная'])
+//
+//        ,
+//        new Post('10',
+//            'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'ivan.suka_ch',
+//            'img/рокконцерт.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('11',
+//            'kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Иван',
+//            'img/стритрейсеры.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//
+//        new Post('12',
+//            'l!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Иван',
+//            'img/флет.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('13',
+//            'm!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Иван',
+//            'img/шашлындос.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('14',
+//            'n!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Иван',
+//            'http://www.vascoplanet.com/pictures/large/7920ed.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('15',
+//            'o!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Иван',
+//            'https://s.zagranitsa.com/images/articles/3580/870x486/4b3f99d416a1ba4467accc568b6402c0.jpg?1463482530',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('16',
+//            'p!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Иван',
+//            'https://www.grekomania.ru/images/greek-articles/other/big/354_santorini-sunset-1.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная']),
+//        new Post('17',
+//            'q!!!',
+//            new Date('2018-02-23T23:00:00'),
+//            'Иванов Иван',
+//            'https://frazy.su/wp-content/uploads/2016/06/34741.jpg',
+//            ['Иванов Иван'],
+//            ['женская', 'сборная'])
+//
+//
+//    ];
+    console.log(photoPosts);
     let postCollection = new PostList(photoPosts);
     return {
         postCollection
@@ -550,8 +589,10 @@ class View {
         }
     }
 
-    deleteFromSite(id) {
+    deleteFromSite(block) {
 
+        let idd=block.parentNode.parentNode.parentNode.parentNode.id.split('E');
+        let id=idd[0];
         let recycle = document.getElementById('' + id);
         let button = document.getElementById('' + id + "B");
         recycle && flex.removeChild(recycle);
@@ -581,7 +622,17 @@ class View {
     }
 
 
-    editPostOnSite(id, obj) {
+    editPostOnSite(fields) {
+
+        let obj={photoLink: '',description: '', tags: ''};
+        obj.photoLink=fields.children[0].children[0].children[1].children[0].value;
+        console.log(fields.children[0].children[0].children[1]);
+        console.log(fields.children[0].children[0].children[1].children[0]);
+        console.log(fields.children[0].children[0].children[1].children[0].value);
+        obj.description=fields.children[0].children[2].value;
+        obj.tags=fields.children[0].children[3].children[1].children[0].value;
+        let idd=fields.id.split('E');
+        let id=idd[0];
         let arr = id.split('elemId');
         let idEl = Number(arr[1]);
         let value;
@@ -609,7 +660,8 @@ class View {
         postToBeChanged.firstElementChild.src = Module.postCollection.get("" + arr[1]).photoLink;
         postToBeChanged.children[1].textContent = str;
 
-        alert("Пост добавлен успешно");
+        alert("Пост исправлен успешно");
+        fields.style.display="none";
 
 
 
@@ -643,6 +695,17 @@ class View {
             alert("Рекомендуем Вам войти или зарегистрироваться");
         }
     }
+    addEditingForm(block){
+
+        console.log(block.parentNode.parentNode.parentNode.parentNode);
+        console.log(block.parentNode.parentNode.parentNode.parentNode.id);
+        let editingForm=block.parentNode.parentNode.parentNode.parentNode.nextSibling.nextSibling.nextSibling.nextSibling;
+        console.log(editingForm);
+        editingForm.id=block.parentNode.parentNode.parentNode.parentNode.id+"E";
+        editingForm.style.display="block";
+
+
+    }
     addElementsToSelect() {
         let temp = document.getElementById("name");
         temp.children[0].value = users[0].name + " " + users[0].surname;
@@ -655,19 +718,34 @@ class View {
     }
 }
 let display = new View();
+
+console.log(Module.postCollection);
 let downloadOn = document.getElementById("addPh");
-downloadOn.addEventListener("click", function(event) {event.preventDefault(); display.downloadOnSite();});
+downloadOn.addEventListener("click", function(event) {event.preventDefault(); display.downloadOnSite(); Module.postCollection.saveToJSON();});
 display.dynamicDownload();
-display.authorization("ivan.suka_ch", "aaa12");
-display.authorization("ivan.suka_ch", "aaa123");
+display.authorization(activeUser.nickname, activeUser.password);
 display.displayElementsForCurrentUser();
-display.editPostOnSite("elemId0", {
-    photoLink: "https://frazy.su/wp-content/uploads/2016/06/34741.jpg"
-});
-display.deleteFromSite("elemId1");
-display.deleteFromSite("elemId3");
-display.deleteFromSite("elemId4");
-display.deleteFromSite("elemId5");
+let edits = document.getElementsByClassName("edit");
+for(let j=0; j<edits.length; j++){
+    edits[j].addEventListener("click", function(event){alert("Форма снизу"); display.addEditingForm(this);});
+}
+
+let deletes = document.getElementsByClassName("delete");
+for(let j=0; j<deletes.length; j++){
+    deletes[j].addEventListener("click", function(event){alert("Форма снизу"); display.deleteFromSite(this);});
+}
+
+let editForms = document.getElementsByClassName("editPost");
+for(let j=0; j<editForms.length; j++){
+    editForms[j].addEventListener("submit", function(event){event.preventDefault(); display.editPostOnSite(this); Module.postCollection.saveToJSON(); Module.postCollection.getFromJSON();});
+}
+//display.editPostOnSite("elemId0", {
+//    photoLink: "https://frazy.su/wp-content/uploads/2016/06/34741.jpg"
+//});
+//display.deleteFromSite("elemId1");
+//display.deleteFromSite("elemId3");
+//display.deleteFromSite("elemId4");
+//display.deleteFromSite("elemId5");
 
 display.downloadOnSite("https://frazy.su/wp-content/uploads/2016/06/34741.jpg", "aaa", "allo, hallo");
 display.downloadOnSite("https://www.grekomania.ru/images/greek-articles/other/big/354_santorini-sunset-1.jpg", "aaa", "allo, hallo");

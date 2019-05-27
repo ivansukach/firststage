@@ -3,7 +3,8 @@ console.log(list);
 let userForm = JSON.parse(list);
 console.log(userForm);
 let users = userForm;
-let activeUser;
+let currentUser = localStorage.getItem("activeUser");
+let activeUser = JSON.parse(currentUser);
 //let users = [{
 //        name: "Ivan",
 //        surname: "Sukach",
