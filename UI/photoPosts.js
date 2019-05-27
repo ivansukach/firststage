@@ -359,14 +359,14 @@
     console.log("-------");
     console.log(getPhotoPost("3"));
     console.log("-------");
-    console.log(validatePhotoPost(photoPosts[2]));
-    console.log("-------");
-    console.log(addPhotoPost(photoPosts[1]));
-    console.log("-------");
-    console.log(editPhotoPost(2, {
-        description: 'all-parties.com'
-    }));
-    console.log("-------");
-    console.log(removePhotoPost(1));
-    console.log("-------");
-}());
+         console.log(validatePhotoPost(photoPosts[2]));
+         console.log("-------");
+         console.log(addPhotoPost(photoPosts[1]));
+         console.log("-------");
+         console.log(editPhotoPost(2, {
+             description: 'all-parties.com'
+         }));
+         console.log("-------");
+         console.log(removePhotoPost(1));
+         console.log("-------");
+     }());
